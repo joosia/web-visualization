@@ -1,0 +1,11 @@
+# remove docx & pdf and OS X files
+
+*.docx
+*.pdf
+.DS_STORE
+.DS_STORE?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
