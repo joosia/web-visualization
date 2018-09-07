@@ -49,6 +49,7 @@ main>p {
 }
 
 main>div {
+    padding-bottom: 25px;
     max-height: 75vh;
     overflow: hidden;
 }
@@ -173,11 +174,11 @@ footer>ul>li {
     .menu {
         font-size: 75%;
     }
-    main>div {
-        max-height: 25vh;
-    }
     article {
         width: 100%;
+    }
+    main {
+        padding-top: 25px;
     }
     main>div {
         display: none;
