@@ -1,5 +1,5 @@
 # TTMS0400 Web-visualisointi
-https://joosia.github.io/web-visualization/
+https://joosia.github.io/web-visualization/  
 Esa-Pekka Autio, L3005@student.jamk.fi
 
 ![lol](img/kuva1.jpg)
