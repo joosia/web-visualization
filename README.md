@@ -1,4 +1,4 @@
-# TTMS0400 Web-ohjelmointi
+# TTMS0400 Web-visualisointi
 Esa-Pekka Autio, L3005@student.jamk.fi
 
 ![lol](img/kuva1.jpg)
