@@ -1,33 +1,172 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Harkkalinkit</title>
-    <style>
-    #container {
-        width: 75%;
-        margin: auto;
-    }
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 250ms;
+            color: white;
+        }
+
+        body {
+            font-family: "Ubuntu", sans-serif;
+            background: #3A1C71;  /* fallback for old browsers */
+            background: -webkit-radial-gradient(#FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
+            background: radial-gradient(#FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 20px;
+            border-bottom: 5px solid rgba(0, 0, 0, 0);
+        }
+
+        a:hover {
+            border-bottom: 5px solid;
+        }
+
+        #left:hover, #right:hover {
+            transform: scale(1.2);
+        }
+
+        h1 {
+            margin: 10px;
+            cursor: pointer;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+        footer {
+            height: 10vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .noselect {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+        }
+
+        #container {
+            width: 75%;
+            min-height: 80vh;
+            margin: auto;
+            padding: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        #link-container {
+            padding: 50px;
+        }
+
+        .list {
+            background: rgba(0,0,0,.75);
+            border-radius: 20px;
+            position: fixed;
+            padding: 50px;
+            display: flex;
+            flex-flow: column wrap;
+            align-content: center;
+            min-height: 50vh;
+            width: 50vw;
+            margin: 0 25vw;
+            top: 25vh;
+            visibility: hidden;
+        }
+        .visible {
+            visibility: visible;
+        }
     </style>
 </head>
+
 <body>
-    <div id="container">
-        <div>
-            <h1>Viikko 37</h1>
-            <a href="" id="linkki"></a>
-        </div>
+    <header><h1>Web-visualisointi harkat</h1></header>
+    <div id="container" class="noselect">
+        <h1 id="left"><</h1>
+            <div id="link-container">
+                <a href="public/w37/responsive.html" id="linkki" target="_blank">Viikko 37</a>
+            </div>
+        <h1 id="right">></h1>
     </div>
+    <div class="list"></div>
+    <footer>
+        <a href="#" id="show-list">Näytä Lista</a>
+        <p>Esa-Pekka Autio / L3005@student.jamk.fi</p>
+    </footer>
 </body>
+
 <script>
-    let links = {
-        w37 : "/public/w37/responsive.html",
-        w39 : "/public/w39/harkka39.html",
-        w40 : "https://github.com/joosia/web-visualization/"
-    };
-    let container = document.getElementById("container");
-    let title = document.getElementsByTagName("h1")[0];
-    let link = document.getElementById("linkki");
+    const links = [
+        { title: "Viikko 37", link: "public/w37/responsive.html" },
+        { title: "Viikko 39", link: "public/w39/harkka39.html" },
+        { title: "Viikko 40", link: "https://github.com/joosia/web-visualization/" },
+    ];
+    const container = document.getElementById("container");
+    const title = document.getElementsByTagName("h1")[0];
+    const link = document.getElementById("linkki");
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
+    const showList = document.getElementById("show-list");
+    const list = document.getElementsByClassName("list")[0];
+    let counter = 0;
+
+    left.addEventListener("click", function () {
+        if (counter > 0)
+            counter--;
+        console.log(counter);
+        if (typeof links[counter] !== "undefined") {
+            link.href = links[counter].link;
+            link.innerHTML = links[counter].title;
+        }
+    });
+    right.addEventListener("click", function () {
+        if (counter < links.length - 1)
+            counter++;
+        console.log(counter);
+        if (typeof links[counter] !== "undefined") {
+            link.href = links[counter].link;
+            link.innerHTML = links[counter].title;
+        }
+    });
+    showList.addEventListener("click", function(){
+        let data = "";
+        links.forEach(element => {
+            data += "<a href='" + element.link + "' target='_blank'>" + element.title +"</a>" + "<br><br>";
+        });
+        list.innerHTML = data;
+        list.classList.toggle("visible");
+        if (list.classList.contains("visible"))
+            showList.innerHTML = "Piilota Lista";
+        else 
+            showList.innerHTML = "Näytä Lista";
+    });
 </script>
+
 </html>
