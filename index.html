@@ -172,6 +172,7 @@
    left.addEventListener("click", function () {
       if (counter > 0)
          counter--;
+      else counter = links.length - 1
       console.log(counter);
       if (typeof links[counter] !== "undefined") {
          link.href = links[counter].link;
@@ -181,6 +182,7 @@
    right.addEventListener("click", function () {
       if (counter < links.length - 1)
          counter++;
+      else counter = 0;
       console.log(counter);
       if (typeof links[counter] !== "undefined") {
          link.href = links[counter].link;
