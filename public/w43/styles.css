@@ -1,0 +1,145 @@
+body {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.nappula {
+   padding: 20px 40px;
+   font-size: 24px;
+   text-align: center;
+   color: white;
+   border: none;
+   border-radius: 15px;
+   cursor: pointer;
+}
+
+.nappula:first-of-type {
+   background-color: #4388FF;
+   transition: 100ms ease-out;
+}
+
+.nappula:first-of-type:hover {
+   /* SASSissa käyttäisimme tähän lighten-funktiota! */
+   background-color: #90B9FF;
+}
+
+.nappula:first-of-type:active {
+   /* Täällä voisimme käyttää darken-funktiota, jos kirjoittelisimma SASS/LESS.. */
+   background-color: #366DCC;
+}
+
+.nappula:nth-of-type(2) {
+   background-color: rgb(255, 67, 230);
+   transition: 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nappula:nth-of-type(2):hover {
+   background-color: rgba(255, 67, 230, .75);
+}
+
+.nappula:nth-of-type(2):active {
+   background-color: rgb(197, 52, 178);
+}
+
+.nappula:nth-of-type(3) {
+   background-color: rgb(50, 190, 57);
+   transition: 100ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+.nappula:nth-of-type(3):hover {
+   background-color: rgba(255, 252, 67, .75);
+   color: black;
+}
+
+.nappula:nth-of-type(3):active {
+   background-color: rgb(197, 52, 52);
+   color: white;
+}
+
+@keyframes slider {
+   0% {
+      background-color: rgb(143, 183, 252);
+   }
+   25% {
+      background-color: rgb(108, 139, 192);
+   }
+   50% {
+      background-color: rgb(61, 79, 110);
+   }
+   75% {
+      background-color: rgb(45, 58, 80);
+   }
+   100% {
+      background-color: rgb(7, 9, 12);
+   }
+}
+
+@keyframes toggle {
+   0% {
+      margin-left: 0px;
+   }
+   25% {
+      margin-left: 111px;
+   }
+   50% {
+      margin-left: 222px;
+   }
+   75% {
+      margin-left: 333px;
+   }
+   100% {
+      margin-left: 445px;
+   }
+}
+
+.cmn-toggle {
+   visibility: hidden;
+}
+
+.cmn-toggle+label {
+   display: block;
+   position: relative;
+   cursor: pointer;
+}
+
+.cmn-toggle-round+label {
+   width: 500px;
+   height: 60px;
+   background-color: #dddddd;
+   border-radius: 60px;
+}
+
+.cmn-toggle-round+label:before, .cmn-toggle-round+label:after {
+   display: block;
+   position: absolute;
+   top: 1px;
+   left: 1px;
+   bottom: 1px;
+   content: "";
+}
+
+.cmn-toggle-round+label:before {
+   right: 1px;
+   background-color: rgb(143, 183, 252);
+   border-radius: 60px;
+}
+
+.cmn-toggle-round+label:after {
+   width: 58px;
+   background-color: #fff;
+   border-radius: 100%;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cmn-toggle-round:checked+label:before {
+   background-color: #90B9FF;
+   animation: slider 2s infinite alternate;
+}
+
+.cmn-toggle-round:checked+label:after {
+   margin-left: 445px;
+   animation: toggle 2s infinite alternate;
+}
+
