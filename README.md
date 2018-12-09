@@ -1,11 +1,20 @@
 # TTMS0400 Web-visualisointi
 Linkit harjoituksiin löytyvät alla olevalta sivulta:
+
 https://joosia.github.io/web-visualization/  
+
+Lopputyön repo:
+https://github.com/joosia/fakestore
+
+Linkki lopputyöhön:
+https://limitless-fjord-35717.herokuapp.com/
+
+Linkki raporttiin:
+https://limitless-fjord-35717.herokuapp.com/documentation
+
 Esa-Pekka Autio, L3005@student.jamk.fi
 
 ![lol](img/kuva1.jpg)
-
-Web-visualisointi -kurssin viikkoharjoitukset ja loppuharkka
 
 ## Harkka40 – CSS-kirjastot ja Frameworkit
 ### 1. Bootstrap 4  
