@@ -1,4 +1,5 @@
 # TTMS0400 Web-visualisointi
+Linkit harjoituksiin löytyvät alla olevalta sivulta:
 https://joosia.github.io/web-visualization/  
 Esa-Pekka Autio, L3005@student.jamk.fi
 
